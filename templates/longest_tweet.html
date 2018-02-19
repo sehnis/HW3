@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Here is the longest tweet posted so far:</h2><br>
+
+{{ longest[3] }}<br><i>posted by <strong>{{ longest[2] }}</strong> (@{{ longest[1] }})</i>. Tweet length: <strong>{{ longest[0] }}</strong><br><br>
+
+{% if not longest %}
+    <i>No tweets have been posted yet.</i>
+{% endif %}
+
+
+<div>
+{% for message in get_flashed_messages() %}
+    <strong>*** {{ message }} ***</strong>
+{% endfor %}
+</div>
+
+{% endblock %}
